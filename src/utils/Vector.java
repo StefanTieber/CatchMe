@@ -9,6 +9,11 @@ public class Vector {
         this.y = y;
     }
 
+    public Vector() {
+        this.x = 0;
+        this.y = 0;
+    }
+
     public void add(Vector vector) {
         x += vector.x;
         y += vector.y;

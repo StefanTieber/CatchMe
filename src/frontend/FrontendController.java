@@ -10,7 +10,7 @@ public class FrontendController extends JPanel {
     private static final int BORDER_THICKNESS = 10;
     private static final int UPPER_BORDER = 30; //Resize and Close Buttons
 
-    private JFrame frame;
+    public static JFrame frame; //TODO only for testing
 
     private Player runner;
     private Player catcher;

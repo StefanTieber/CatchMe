@@ -10,11 +10,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameController extends TimerTask {
-    public final int GAME_WIDTH = 500;
-    public final int GAME_HEIGHT = 500;
+    public static final int GAME_WIDTH = 500;
+    public static final int GAME_HEIGHT = 500;
 
-    public final float MAX_ACCELERATION = 1;
-    public final float MAX_VELOCITY = 10;
+    public static final float MAX_ACCELERATION = 1;
+    public static final float MAX_VELOCITY = 10;
 
     private PlayerAlgorithm runnerAlgorithm;
     private PlayerAlgorithm catcherAlgorithm;
