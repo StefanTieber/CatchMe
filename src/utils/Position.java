@@ -18,4 +18,10 @@ public class Position {
         x += vector.x;
         y += vector.y;
     }
+
+    public static Vector distance(Position position1, Position position2) {
+        float deltaX = position2.x - position1.x;
+        float deltaY = position2.y - position1.y;
+        return new Vector(deltaX, deltaY);
+    }
 }
