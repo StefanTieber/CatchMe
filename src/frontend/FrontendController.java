@@ -14,12 +14,12 @@ public class FrontendController extends JPanel {
     private Player catcher;
     private Player runner;
 
-    public FrontendController(int gamewidth, int gameheight, Player catcher, Player runner) {
+    public FrontendController(int gameWidth, int gameHeight, Player catcher, Player runner) {
         this.catcher = catcher;
         this.runner = runner;
 
         frame = new JFrame("Catch Me!");
-        frame.setSize(adjustForBorders(gamewidth), adjustForBorders(gameheight));
+        frame.setSize(adjustForBorders(gameWidth), adjustForBorders(gameHeight));
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -28,7 +28,7 @@ public class FrontendController extends JPanel {
     }
 
     private int adjustForBorders(int size) {
-        return size + BORDER_THICKNESS * 2 + PLAYER_SIZE / 2;
+        return size + BORDER_THICKNESS * 2 + PLAYER_SIZE;
     }
 
     private int adjustForBorder(int x) {
@@ -50,7 +50,7 @@ public class FrontendController extends JPanel {
     private void drawBorder(Graphics2D g) {
         Stroke oldStroke = g.getStroke();
         g.setStroke(new BasicStroke(BORDER_THICKNESS));
-        g.drawRect(BORDER_THICKNESS / 2, BORDER_THICKNESS / 2, this.getWidth() - 1 - BORDER_THICKNESS / 2, this.getHeight() - 1 - BORDER_THICKNESS / 2);
+        g.drawRect(BORDER_THICKNESS / 2, BORDER_THICKNESS / 2, this.getWidth() - BORDER_THICKNESS / 2, this.getHeight() - BORDER_THICKNESS / 2);
         g.setStroke(oldStroke);
     }
 
