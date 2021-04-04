@@ -8,4 +8,9 @@ public class Position {
         this.x = x;
         this.y = y;
     }
+
+    public void move(Vector vector) {
+        x += vector.x;
+        y += vector.y;
+    }
 }

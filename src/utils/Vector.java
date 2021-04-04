@@ -9,6 +9,15 @@ public class Vector {
         this.y = y;
     }
 
+    public void add(Vector vector) {
+        x += vector.x;
+        y += vector.y;
+    }
+
+    public static Vector add(Vector vector1, Vector vector2) {
+        return new Vector(vector1.x + vector2.x, vector1.y + vector2.y);
+    }
+
     public float getLength() {
         return (float) Math.sqrt(x * x + y * y);
     }
