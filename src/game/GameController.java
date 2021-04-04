@@ -5,7 +5,7 @@ import utils.Position;
 import utils.Vector;
 
 public class GameController {
-    public final float MAX_SPEED = 30;
+    public final float MAX_VELOCITY = 30;
 
     private Player runner;
     private Player catcher;
@@ -13,8 +13,8 @@ public class GameController {
     private Position runnerPosition;
     private Position catcherPosition;
 
-    private Vector runnerSpeed;
-    private Vector catcherSpeed;
+    private Vector runnerVelocity;
+    private Vector catcherVelocity;
 
     public GameController(Player runner, Player catcher) {
         this.runner = runner;
@@ -23,19 +23,19 @@ public class GameController {
         this.runnerPosition = new Position((float) Math.random(), (float) Math.random());
         this.catcherPosition = new Position((float) Math.random(), (float) Math.random());
 
-        this.runnerSpeed = new Vector(0,0);
-        this.catcherSpeed = new Vector(0,0);
+        this.runnerVelocity = new Vector(0,0);
+        this.catcherVelocity = new Vector(0,0);
     }
 
     public void tick() {
-        Vector runnerMove = runner.getMove(runnerPosition, runnerSpeed, catcherPosition, catcherSpeed);
-        Vector catcherMove = catcher.getMove(catcherPosition, catcherSpeed, runnerPosition, runnerSpeed);
+        Vector runnerMove = runner.getMove(runnerPosition, runnerVelocity, catcherPosition, catcherVelocity);
+        Vector catcherMove = catcher.getMove(catcherPosition, catcherVelocity, runnerPosition, runnerVelocity);
 
-        runnerSpeed.add(runnerMove);
-        runnerPosition.move(runnerSpeed);
+        runnerVelocity.add(runnerMove);
+        runnerPosition.move(runnerVelocity);
 
-        catcherSpeed.add(catcherMove);
-        catcherPosition.move(catcherSpeed);
+        catcherVelocity.add(catcherMove);
+        catcherPosition.move(catcherVelocity);
 
         //TODO call frontend
     }

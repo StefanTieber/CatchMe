@@ -6,7 +6,7 @@ import utils.Vector;
 public class SimpleCatcher implements Player {
 
     @Override
-    public Vector getMove(Position yourPosition, Vector yourVector, Position enemyPosition, Vector enemyVector) {
+    public Vector getMove(Position yourPosition, Vector yourVelocity, Position enemyPosition, Vector enemyVelocity) {
         float deltaX = enemyPosition.x - yourPosition.x;
         float deltaY = enemyPosition.y - yourPosition.y;
         System.out.println("catcher vector x: " + deltaX + ", catcher vector y: " + deltaY);
