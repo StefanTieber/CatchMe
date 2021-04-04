@@ -12,7 +12,7 @@ public class MouseRunner implements Player {
         Point mouseLocation = MouseInfo.getPointerInfo().getLocation();
         float deltaX = mouseLocation.x - yourPosition.x;
         float deltaY = mouseLocation.y - yourPosition.y;
-        System.out.println("x: " + deltaX + ", y: " + deltaY);
+        System.out.println("runner vector  x: " + deltaX + ", runner vector y: " + deltaY);
 
         return new Vector(deltaX, deltaY);
     }
