@@ -2,7 +2,7 @@ package player;
 
 import utils.Vector;
 
-public class SimpleCatcher implements PlayerAlgorythm {
+public class SimpleCatcher implements PlayerAlgorithm {
 
     @Override
     public Vector getAction(Player you, Player enemy) {

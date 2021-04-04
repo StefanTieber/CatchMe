@@ -1,11 +1,10 @@
 package player;
 
-import utils.Position;
 import utils.Vector;
 
 import java.awt.*;
 
-public class MouseRunner implements PlayerAlgorythm {
+public class MouseRunner implements PlayerAlgorithm {
 
     @Override
     public Vector getAction(Player you, Player enemy) {
