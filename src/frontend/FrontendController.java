@@ -11,10 +11,10 @@ public class FrontendController extends JPanel {
 
     private JFrame frame;
 
-    private Player catcher;
     private Player runner;
+    private Player catcher;
 
-    public FrontendController(int gameWidth, int gameHeight, Player catcher, Player runner) {
+    public FrontendController(int gameWidth, int gameHeight, Player runner, Player catcher) {
         this.catcher = catcher;
         this.runner = runner;
 
