@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hallo du Schneckli!");
+        System.out.println("Hallo du Schneckli! Scheinbar funktioniert GIT auch mit Eclipse!");
     }
 }
