@@ -1,41 +1,36 @@
 package game;
 
 import player.Player;
+import player.PlayerAlgorythm;
 import utils.Position;
 import utils.Vector;
 
 public class GameController {
     public final float MAX_VELOCITY = 30;
 
+    private PlayerAlgorythm runnerAlgorythm;
+    private PlayerAlgorythm catcherAlgorythm;
+
     private Player runner;
     private Player catcher;
 
-    private Position runnerPosition;
-    private Position catcherPosition;
+    public GameController(PlayerAlgorythm runnerAlgorythm, PlayerAlgorythm catcherAlgorythm) {
+        this.runnerAlgorythm = runnerAlgorythm;
+        this.catcherAlgorythm = catcherAlgorythm;
 
-    private Vector runnerVelocity;
-    private Vector catcherVelocity;
-
-    public GameController(Player runner, Player catcher) {
-        this.runner = runner;
-        this.catcher = catcher;
-
-        this.runnerPosition = new Position((float) Math.random(), (float) Math.random());
-        this.catcherPosition = new Position((float) Math.random(), (float) Math.random());
-
-        this.runnerVelocity = new Vector(0,0);
-        this.catcherVelocity = new Vector(0,0);
+        this.runner = new Player(new Position());
+        this.catcher = new Player(new Position());
     }
 
-    public void tick() {
-        Vector runnerMove = runner.getMove(runnerPosition, runnerVelocity, catcherPosition, catcherVelocity);
-        Vector catcherMove = catcher.getMove(catcherPosition, catcherVelocity, runnerPosition, runnerVelocity);
+    private void tick() {
+        Vector runnerAction = runnerAlgorythm.getAction(runner, catcher);
+        Vector catcherAction = catcherAlgorythm.getAction(catcher, runner);
 
-        runnerVelocity.add(runnerMove);
-        runnerPosition.move(runnerVelocity);
+        runner.accelerate(runnerAction);
+        runner.move();
 
-        catcherVelocity.add(catcherMove);
-        catcherPosition.move(catcherVelocity);
+        catcher.accelerate(catcherAction);
+        catcher.move();
 
         //TODO call frontend
     }

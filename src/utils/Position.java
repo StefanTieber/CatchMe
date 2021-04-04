@@ -9,7 +9,12 @@ public class Position {
         this.y = y;
     }
 
-    public void move(Vector vector) {
+    public Position() {
+        this.x = (float) Math.random();
+        this.y = (float) Math.random();
+    }
+
+    public void add(Vector vector) {
         x += vector.x;
         y += vector.y;
     }

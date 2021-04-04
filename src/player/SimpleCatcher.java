@@ -1,14 +1,13 @@
 package player;
 
-import utils.Position;
 import utils.Vector;
 
-public class SimpleCatcher implements Player {
+public class SimpleCatcher implements PlayerAlgorythm {
 
     @Override
-    public Vector getMove(Position yourPosition, Vector yourVelocity, Position enemyPosition, Vector enemyVelocity) {
-        float deltaX = enemyPosition.x - yourPosition.x;
-        float deltaY = enemyPosition.y - yourPosition.y;
+    public Vector getAction(Player you, Player enemy) {
+        float deltaX = enemy.position.x - you.position.x;
+        float deltaY = enemy.position.y - you.position.y;
         System.out.println("catcher vector x: " + deltaX + ", catcher vector y: " + deltaY);
 
         return new Vector(deltaX, deltaY);
