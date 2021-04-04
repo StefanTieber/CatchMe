@@ -54,12 +54,12 @@ public class FrontendController extends JPanel {
         g.setStroke(oldStroke);
     }
 
-    private void drawCatcher(Graphics g) {
-        drawPlayer(g, catcher, Color.RED);
-    }
-
     private void drawRunner(Graphics g) {
         drawPlayer(g, runner, Color.BLUE);
+    }
+
+    private void drawCatcher(Graphics g) {
+        drawPlayer(g, catcher, Color.RED);
     }
 
     private void drawPlayer(Graphics g, Player player, Color red) {

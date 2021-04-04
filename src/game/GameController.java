@@ -1,13 +1,17 @@
 package game;
 
+import frontend.FrontendController;
 import player.Player;
 import player.PlayerAlgorithm;
 import utils.Position;
 import utils.Vector;
 
 public class GameController {
+    public final int GAME_WIDTH = 500;
+    public final int GAME_HEIGHT = 500;
+
     public final float MAX_ACCELERATION = 1;
-    public final float MAX_VELOCITY = 30;
+    public final float MAX_VELOCITY = 10;
 
     private PlayerAlgorithm runnerAlgorithm;
     private PlayerAlgorithm catcherAlgorithm;
@@ -15,12 +19,16 @@ public class GameController {
     private Player runner;
     private Player catcher;
 
+    private FrontendController frontendController;
+
     public GameController(PlayerAlgorithm runnerAlgorithm, PlayerAlgorithm catcherAlgorithm) {
         this.runnerAlgorithm = runnerAlgorithm;
         this.catcherAlgorithm = catcherAlgorithm;
 
         this.runner = new Player(new Position());
         this.catcher = new Player(new Position());
+
+        this.frontendController = new FrontendController(GAME_WIDTH, GAME_HEIGHT, runner, catcher);
     }
 
     private void tick() {
@@ -39,6 +47,6 @@ public class GameController {
         runner.move();
         catcher.move();
 
-        //TODO call frontend
+        frontendController.repaint();
     }
 }
