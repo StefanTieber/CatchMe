@@ -23,7 +23,7 @@ public class Vector {
         y = y * length / oldLength;
     }
 
-    public void normaliseLength() {
+    public void normalizeLength() {
         setLength(1);
     }
 }
