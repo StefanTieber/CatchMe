@@ -7,7 +7,8 @@ import java.awt.*;
 
 public class FrontendController extends JPanel {
     private static final int PLAYER_SIZE = 20;
-    public static final int BORDER_THICKNESS = 10;
+    private static final int BORDER_THICKNESS = 10;
+    private static final int UPPER_BORDER = 30; //Resize and Close Buttons
 
     private JFrame frame;
 
@@ -19,7 +20,7 @@ public class FrontendController extends JPanel {
         this.runner = runner;
 
         frame = new JFrame("Catch Me!");
-        frame.setSize(adjustForBorders(gameWidth), adjustForBorders(gameHeight));
+        frame.setSize(adjustForBorders(gameWidth), adjustForBorders(gameHeight) + UPPER_BORDER);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
@@ -50,7 +51,7 @@ public class FrontendController extends JPanel {
     private void drawBorder(Graphics2D g) {
         Stroke oldStroke = g.getStroke();
         g.setStroke(new BasicStroke(BORDER_THICKNESS));
-        g.drawRect(BORDER_THICKNESS / 2, BORDER_THICKNESS / 2, this.getWidth() - BORDER_THICKNESS / 2, this.getHeight() - BORDER_THICKNESS / 2);
+        g.drawRect(BORDER_THICKNESS / 2, BORDER_THICKNESS / 2, this.getWidth() - BORDER_THICKNESS, this.getHeight() - BORDER_THICKNESS);
         g.setStroke(oldStroke);
     }
 
