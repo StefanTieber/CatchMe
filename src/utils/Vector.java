@@ -14,16 +14,14 @@ public class Vector {
         y += vector.y;
     }
 
-    public static Vector add(Vector vector1, Vector vector2) {
-        return new Vector(vector1.x + vector2.x, vector1.y + vector2.y);
+    public void trimLength(float maxLength) {
+        if (getLength() > maxLength) {
+            setLength(maxLength);
+        }
     }
 
     public float getLength() {
         return (float) Math.sqrt(x * x + y * y);
-    }
-
-    public float getDirection() {
-        return (float) Math.atan2(y, x);
     }
 
     public void setLength(float length) {
@@ -32,7 +30,7 @@ public class Vector {
         y = y * length / oldLength;
     }
 
-    public void normalizeLength() {
-        setLength(1);
+    public float getDirection() {
+        return (float) Math.atan2(y, x);
     }
 }
