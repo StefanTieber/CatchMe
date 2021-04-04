@@ -6,6 +6,7 @@ import utils.Position;
 import utils.Vector;
 
 public class GameController {
+    public final float MAX_ACCELERATION = 1;
     public final float MAX_VELOCITY = 30;
 
     private PlayerAlgorythm runnerAlgorythm;
@@ -26,10 +27,16 @@ public class GameController {
         Vector runnerAction = runnerAlgorythm.getAction(runner, catcher);
         Vector catcherAction = catcherAlgorythm.getAction(catcher, runner);
 
-        runner.accelerate(runnerAction);
-        runner.move();
+        runnerAction.trimLength(MAX_ACCELERATION);
+        catcherAction.trimLength(MAX_ACCELERATION);
 
+        runner.accelerate(runnerAction);
         catcher.accelerate(catcherAction);
+        
+        runner.velocity.trimLength(MAX_VELOCITY);
+        catcher.velocity.trimLength(MAX_VELOCITY);
+
+        runner.move();
         catcher.move();
 
         //TODO call frontend
