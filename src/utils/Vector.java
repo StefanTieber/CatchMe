@@ -17,9 +17,13 @@ public class Vector {
         return (float) Math.atan2(y, x);
     }
 
-    public void setLengthOne() {
-        float length = getLength();
-        x /= length;
-        y /= length;
+    public void setLength(float length) {
+        float oldLength = getLength();
+        x = x * length / oldLength;
+        y = y * length / oldLength;
+    }
+
+    public void normaliseLength() {
+        setLength(1);
     }
 }
